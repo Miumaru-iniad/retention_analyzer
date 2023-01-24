@@ -17,6 +17,7 @@ for f in files:
 
 data_lst =[]
 
+count = 0
 for a in files:
     rows = []
     print(a)
@@ -25,11 +26,17 @@ for a in files:
         rows = [row for row in reader]
     header = rows.pop(0)
     data = np.float_(np.array(rows).T)
+    rivals = [x+y for x,y in zip(data[1],data[2])]
+    data = list(data)
+    data.append(rivals)
+    plt.title(fnames[count],fontname="MS Gothic")
     plt.xlabel("time")
-    plt.ylabel("reitation")
-    plt.plot(data[0], data[1], linestyle='solid')
-    plt.plot(data[0], data[2], linestyle='solid')
+    plt.ylabel("retation")
+    plt.plot(data[0], data[1], linestyle='solid',label=fnames[count])
+    plt.plot(data[0], data[3], linestyle='solid',label='rivals of ' + fnames[count])
+    plt.legend(loc = 'upper right',prop={"family":"MS Gothic"})
     plt.show()
+    count+=1
 
 
 
