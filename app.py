@@ -15,7 +15,7 @@ for f in files:
     fnames.append(fname)
     print(fname)
 
-x_datas = range(0,100)
+data_lst =[]
 
 for a in files:
     rows = []
@@ -25,7 +25,11 @@ for a in files:
         rows = [row for row in reader]
     header = rows.pop(0)
     data = np.float_(np.array(rows).T)
-    plt.xlabel(header[0])
-    plt.ylabel(header[1])
-    plt.plot(data[0], data[1], linestyle='solid', marker='o')
+    plt.xlabel("time")
+    plt.ylabel("reitation")
+    plt.plot(data[0], data[1], linestyle='solid')
+    plt.plot(data[0], data[2], linestyle='solid')
     plt.show()
+
+
+
