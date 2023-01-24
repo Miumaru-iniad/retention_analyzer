@@ -10,16 +10,17 @@ typ = [('', '*.csv')]
 dir = 'C:\\pg'
 files = filedialog.askopenfilenames(filetypes = typ, initialdir = dir) 
 fnames = []
-for f in files:
-    fname = f.split()[2]
-    fnames.append(fname)
-    print(fname)
-
 data_lst =[]
-
 count = 0
 files_data =[]
+
+
+
+
 for a in files:
+    fname = a.split()[2]
+    fnames.append(fname)
+    print(fname)
     rows = []
     print(a)
     with open(a,encoding="utf-8") as f:   
