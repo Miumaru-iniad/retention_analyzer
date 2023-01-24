@@ -31,9 +31,10 @@ for a in files:
     rivals = [x+y for x,y in zip(data[1],data[2])]
     data = list(data)
     data.append(rivals)
+    print(len(data[0]))
     data_lst.append(data)
     plt.title(fnames[count],fontname="MS Gothic")
-    plt.xlabel("time (%)")
+    plt.xlabel("time (second)")
     plt.ylabel("retation")
     plt.plot(data[0], data[1], linestyle='solid',label=fnames[count])
     plt.plot(data[0], data[3], linestyle='solid',label='rivals of ' + fnames[count])
@@ -42,7 +43,7 @@ for a in files:
     count+=1
 
 plt.title("Songs Retation")
-plt.xlabel("time (%)")
+plt.xlabel("time (second)")
 plt.ylabel("retation")
 for x in range(len(files)):
     plt.plot(data_lst[x][0], data_lst[x][1], linestyle='solid',label=fnames[x])
