@@ -32,6 +32,21 @@ for a in files:
     data = list(data)
     data.append(rivals)
     print(len(data[0]))
+    #ポップアップで動画の秒数を取得
+    layout =[[sg.Text(fname+"の動画時間を教えて下さい")],
+             [sg.InputText(default_text="00",key='m'),sg.Text("分"),sg.InputText(default_text="00",key='s'),sg.Text("秒")],
+             [sg.Button('決定')]]
+    window = sg.Window('動画の秒数確認', layout)
+    while True:
+        event, value = window.read()
+        if event == sg.WIN_CLOSED:
+            break
+        elif event == '決定':
+            second = int(value['m'])*60+int(value['s'])
+            break
+    window.close()
+    #分秒を秒に変換してからデータ数に合わせて分割し、dataにappendする
+    print(second)
     data_lst.append(data)
     plt.title(fnames[count],fontname="MS Gothic")
     plt.xlabel("time (second)")
